@@ -13,14 +13,14 @@
 
 If it's the very first time you are using it, install NPM related packages:
 
-```
+```sh
 $ cd elk-service-crawler
 $ npm i 
 ```
 
 Now, open a CLI and launch the next command:
 
-```
+```sh
 $ cd elk-service-crawler
 $ node tail.js
 ```
@@ -31,7 +31,7 @@ _Note: you can use verbose mode for "tail.js", open the file and replace `const 
 
 Open a second CLI and launch the next command:
 
-```
+```sh
 $ cd elk-service-crawler
 $ sudo ./start.sh
 ```
@@ -40,7 +40,7 @@ Wait for the results on the first CLI, if an exposed server is found, you'll see
 
 Example:
 
-```
+```sh
 $ node tail.js
 
 ------------------------------------------------------
