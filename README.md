@@ -44,8 +44,8 @@ Address     : <ip>:9200/tcp
 ## Be aware of the next points
 
 - Scanning the entire Internet is bad. For one thing, parts of the Internet react badly to being scanned. For another thing, some sites track scans and add you to a ban list, which will get you firewalled from useful parts of the Internet.
-- Respect data from exposed servers, do not use it for your own profit a don't reveal secrets.
-- This repository has educational purposes only and I'm not responsible of any damage or any other kind of responsability related to its usage.
+- Respect data from exposed servers, do not use it for your profit a don't reveal secrets.
+- This repository has educational purposes only and I'm not responsible for any damage or any other kind of responsibility related to its usage.
 
 ## Contributing
 
