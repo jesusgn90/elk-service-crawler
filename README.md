@@ -109,7 +109,7 @@ $ curl <ip>:9200/_cat/indices
 
 List indices using a pattern:
 
-```shsh
+```sh
 $ curl <ip>:9200/_cat/indices/mypattern*
 $ curl <ip>:9200/_cat/indices/mypa*pattern*
 $ curl <ip>:9200/_cat/indices/*mypattern*
