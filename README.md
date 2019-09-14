@@ -61,6 +61,31 @@ Address     : <ip>:9200/tcp
 - Respect data from exposed servers, do not use it for your profit a don't reveal secrets.
 - This repository has educational purposes only and I'm not responsible for any damage or any other kind of responsibility related to its usage.
 
+## Custom IP ranges and advanced usage
+
+Let's say we have some IP ranges, for example, the AWS ranges for EC2:
+
+```sh
+$ curl -s https://ip-ranges.amazonaws.com/ip-ranges.json | grep EC2 -b3 | grep ip_prefix | grep -o -P "\d+\.\d+\.\d+\.\d+/\d+" > ip-ranges.txt
+```
+
+The above command would generate a list with all the IP ranges for AWS EC2.
+
+Now, we want to scan all of them, let's modify the `start.sh` script as follow:
+
+```sh
+#/usr/bin/env bash
+PORT="9200"
+RATE="1000000"
+rm -f output
+while read range; do
+    RANGE="$range"
+    masscan "$RANGE" -p "$PORT" --rate "$RATE" --exclude 255.255.255.255 >> output
+done <ip-ranges.txt
+```
+
+Then, we can follow the same steps described in this README.md for scanning the whole AWS EC2 space.
+
 ## Contributing
 
 This repository is pretty simple, however, I'm opened to see contributions. Feel free to create a pull request and I'll review it as soon as possible.
