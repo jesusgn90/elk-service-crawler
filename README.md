@@ -93,6 +93,35 @@ done <ip-ranges.txt
 
 Then, we can follow the same steps described in this README.md for scanning the whole AWS EC2 space.
 
+#### Useful Elasticsearch commands
+
+See cluster details:
+
+```sh
+$ curl <ip>:9200
+```
+
+List indices:
+
+```sh
+$ curl <ip>:9200/_cat/indices
+```
+
+List indices using a pattern:
+
+```shsh
+$ curl <ip>:9200/_cat/indices/mypattern*
+$ curl <ip>:9200/_cat/indices/mypa*pattern*
+$ curl <ip>:9200/_cat/indices/*mypattern*
+```
+
+Fetch documents:
+
+```sh
+$ curl <ip>:9200/<index-name>/_search?pretty
+$ curl <ip>:9200/<index-name>/_search?pretty -s | more
+```
+
 ## Contributing
 
 This repository is pretty simple, however, I'm opened to see contributions. Feel free to create a pull request and I'll review it as soon as possible.
