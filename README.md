@@ -9,17 +9,29 @@
 
 ## How to
 
-Open a CLI and launch the next command:
+**Launch the Node.js script for testing candidate URLs**
+
+If it's the very first time you are using it, install NPM related packages:
 
 ```
-$ npm i # Only the first time, install the required NPM packages
+$ cd elk-service-crawler
+$ npm i 
+```
+
+Now, open a CLI and launch the next command:
+
+```
+$ cd elk-service-crawler
 $ node tail.js
 ```
+
+**Launch the masscan helper script**
 
 Open a second CLI and launch the next command:
 
 ```
-$ ./start.sh
+$ cd elk-service-crawler
+$ sudo ./start.sh
 ```
 
 Wait for the results on the first CLI, if an exposed server is found, you'll see it.
