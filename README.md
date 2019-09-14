@@ -25,6 +25,8 @@ $ cd elk-service-crawler
 $ node tail.js
 ```
 
+_Note: you can use verbose mode for "tail.js", open the file and replace `const DEBUG = false` with `const DEBUG = true`._
+
 **Launch the masscan helper script**
 
 Open a second CLI and launch the next command:
