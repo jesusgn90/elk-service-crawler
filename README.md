@@ -38,7 +38,14 @@ $ sudo ./start.sh
 
 Wait for the results on the first CLI, if an exposed server is found, you'll see it.
 
-Example:
+Example with `DEBUG = false`:
+
+```sh
+$ node tail.js
+{"cluster_name":"<cluster_name>","name":"<node_name>","httpURL":"http://<ip>:9200","ip":"<ip>","port":"9200/tcp"}
+```
+
+Example with `DEBUG = true`:
 
 ```sh
 $ node tail.js
