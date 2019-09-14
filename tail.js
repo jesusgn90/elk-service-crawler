@@ -3,12 +3,13 @@ const axios = require('axios');
 const { version } = require('./package.json');
 const FILE = `${__dirname}/output`;
 const DEBUG = false;
-console.log(`
+if (DEBUG) {
+  console.log(`
 ------------------------------------------------------
 STARTED SERVICE-CRAWLER ${version}                   
 ------------------------------------------------------
 `);
-
+}
 const tail = new Tail(FILE);
 
 tail.on('line', async line => {
@@ -24,8 +25,9 @@ tail.on('line', async line => {
       const { data } = result;
       const { cluster_name, name } = data;
       if (cluster_name && name) {
-        console.log(
-          `
+        if (DEBUG) {
+          console.log(
+            `
 ------------------------------------------------------
 Elasticsearch server found! 
 Cluster name: ${cluster_name}
@@ -33,12 +35,27 @@ Node name   : ${name}
 Address     : ${ip}:${port}
 ------------------------------------------------------
 `
-        );
+          );
+        } else {
+          const obj = {
+            cluster_name,
+            name,
+            httpURL,
+            ip,
+            port
+          };
+          // Default one-line JSON output
+          console.log(JSON.stringify(obj));
+        }
       }
     } catch (error) {
-      DEBUG && console.log(`Error found: ${error.message || error}, continue...`);
+      if (DEBUG) {
+        console.log(`Error found: ${error.message || error}, continue...`);
+      }
     }
   } else {
-    DEBUG && console.log('Empty line, continue...');
+    if (DEBUG) {
+      console.log('Empty line, continue...');
+    }
   }
 });
