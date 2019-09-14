@@ -63,3 +63,4 @@ typings/
 # Generated output
 output
 paused.conf
+results.txt
