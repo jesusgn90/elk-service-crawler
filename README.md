@@ -1,6 +1,6 @@
 # Elasticsearch service crawler
 
-> Scan the whole IP4 space looking for exposed Elasticsearch services.
+> Scan one or more IPv4 ranges looking for exposed Elasticsearch services.
 
 ## Requirements
 
